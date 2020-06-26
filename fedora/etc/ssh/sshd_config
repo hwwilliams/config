@@ -1,3 +1,4 @@
+Include /etc/crypto-policies/back-ends/opensshserver.config
 
 Protocol 2
 Port 22
