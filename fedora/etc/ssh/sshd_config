@@ -11,7 +11,6 @@ SyslogFacility AUTHPRIV
 LogLevel INFO
 AuthenticationMethods publickey
 StrictModes yes
-UsePrivilegeSeparation sandbox
 LoginGraceTime 30
 MaxAuthTries 3
 MaxSessions 10
@@ -49,7 +48,6 @@ PrintLastLog yes
 Compression no
 UseDNS no
 Banner none
-Subsystem sftp internal-sftp -l INFO -f LOCAL6 -u 0027
 
 Match Group sftponly
     ForceCommand internal-sftp -l INFO -f LOCAL6 -u 0027
