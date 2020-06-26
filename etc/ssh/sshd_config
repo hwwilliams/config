@@ -1,0 +1,60 @@
+
+Protocol 2
+Port 22
+AddressFamily inet
+ListenAddress 0.0.0.0
+HostKey /etc/ssh/ssh_host_ed25519_key
+RekeyLimit default 600
+VersionAddendum TempleOS
+SyslogFacility AUTHPRIV
+LogLevel INFO
+AuthenticationMethods publickey
+StrictModes yes
+UsePrivilegeSeparation sandbox
+LoginGraceTime 30
+MaxAuthTries 3
+MaxSessions 10
+MaxStartups 2:25:10
+FingerprintHash sha256
+PermitRootLogin no
+PubkeyAuthentication yes
+IgnoreRhosts yes
+IgnoreUserKnownHosts yes
+HostbasedAuthentication no
+DenyUsers root admin
+AllowUsers hwwilliams
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+KerberosAuthentication no
+KerberosOrLocalPasswd no
+KerberosTicketCleanup yes
+GSSAPIAuthentication no
+GSSAPICleanupCredentials yes
+UsePAM yes
+RevokedKeys /etc/ssh/revoked_keys
+X11Forwarding no
+X11UseLocalhost yes
+GatewayPorts no
+PermitTunnel no
+AllowTcpForwarding no
+AllowAgentForwarding yes
+TCPKeepAlive no
+ClientAliveInterval 300
+ClientAliveCountMax 3
+PermitUserEnvironment no
+PrintMotd no
+PrintLastLog yes
+Compression no
+UseDNS no
+Banner none
+Subsystem sftp internal-sftp -l INFO -f LOCAL6 -u 0027
+
+Match Group sftponly
+    ForceCommand internal-sftp -l INFO -f LOCAL6 -u 0027
+    ChrootDirectory /home/%u
+    AllowTcpForwarding no
+    AllowAgentForwarding no
+    PasswordAuthentication no
+    PermitRootLogin no
+    X11Forwarding no
