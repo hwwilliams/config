@@ -38,8 +38,6 @@ HostbasedAuthentication no
 PasswordAuthentication no
 PermitEmptyPasswords no
 
-
-
 ChallengeResponseAuthentication no
 
 KerberosAuthentication no
